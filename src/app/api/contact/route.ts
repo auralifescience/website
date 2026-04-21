@@ -48,6 +48,7 @@ hello@auralifescience.com
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 })
+    console.error('Resend error:', error)
+    return NextResponse.json({ error: 'Failed to send message', details: String(error) }, { status: 500 })
   }
 }
