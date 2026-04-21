@@ -6,7 +6,7 @@ const leadership = [
     role: 'CEO & Co-Founder',
     bio: 'Emilio leads Aura\'s vision and strategy, driving the company\'s mission to make biomanufacturing carbon-negative. He brings entrepreneurial and operational expertise to building Aura\'s platform from the ground up.',
     image: null,
-    linkedin: 'https://www.linkedin.com/in/emilio-balderas/',
+    linkedin: 'https://www.linkedin.com/in/emiliobalderas/',
   },
   {
     name: 'Jacob Bhoi',
@@ -15,15 +15,16 @@ const leadership = [
     image: null,
     linkedin: 'https://www.linkedin.com/in/jacob-bhoi/',
   },
+  {
+    name: 'AH Hassaballah',
+    role: 'COO',
+    bio: '',
+    image: null,
+    linkedin: 'https://www.linkedin.com/in/ahhassaballah/',
+  },
 ]
 
 const fellows = [
-  {
-    name: 'AH Hasballah',
-    role: 'MBA Candidate at UChicago Booth; PhD in Environmental Engineering',
-    bio: '',
-    linkedin: '#',
-  },
   {
     name: 'Chloe Sun',
     role: 'BS in Economics, University of Chicago',
@@ -41,14 +42,51 @@ const fellows = [
 const advisors = [
   {
     name: 'Carl H. Johnson, Ph.D.',
-    role: 'Cornelius Vanderbilt Professor of Biological Sciences, Professor of Molecular Physiology and Biophysics',
-    bio: '',
+    role: 'Inventor and Advisor',
+    affiliation: 'Vanderbilt University',
+    bio: 'Expert on cyanobacteria circadian clocks — first described the cyanobacteria circadian clock.',
     linkedin: '#',
   },
   {
     name: 'Yao Xu, Ph.D.',
-    role: 'Research Associate Professor of Biological Sciences',
-    bio: '',
+    role: 'Inventor and Advisor',
+    affiliation: 'Vanderbilt University',
+    bio: 'Expert in synthetic biology and engineering cyanobacteria.',
+    linkedin: '#',
+  },
+  {
+    name: 'Wayne Mitchell, Ph.D.',
+    role: 'Advisor',
+    affiliation: 'Formerly LanzaTech',
+    bio: 'Computational biology expert who was recruited to start the bioinformatics group at LanzaTech.',
+    linkedin: '#',
+  },
+  {
+    name: 'Alice Havill',
+    role: 'Advisor',
+    affiliation: 'Formerly LanzaTech; Breakthrough Energy',
+    bio: 'Helped scale LanzaTech from the laboratory to pilot through commercial scale-up.',
+    linkedin: '#',
+  },
+  {
+    name: 'Rasmus Jensen, Ph.D.',
+    role: 'Mentor',
+    affiliation: 'LanzaTech',
+    bio: 'Experienced process engineer with experience biomanufacturing with diverse microbes.',
+    linkedin: '#',
+  },
+  {
+    name: 'Jen Wagner',
+    role: 'Advisor',
+    affiliation: 'Former President of CarbonCure; Breakthrough Energy',
+    bio: 'Expert in commercializing CleanTech.',
+    linkedin: '#',
+  },
+  {
+    name: 'Chris Schweitzer',
+    role: 'Advisor',
+    affiliation: 'Formerly AbbVie; Mann and Hummel',
+    bio: 'Venture capital professional with past experience in biotech.',
     linkedin: '#',
   },
 ]
@@ -120,7 +158,7 @@ export default function Team() {
         <div className="container-custom mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <span className="gradient-text">Leadership</span> Team
+              <span className="gradient-text">Leadership Team</span>
             </h2>
           </div>
 
@@ -157,7 +195,7 @@ export default function Team() {
         <div className="container-custom mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Scientific <span className="gradient-text">Advisors</span>
+              <span className="gradient-text">Advisors and Mentors</span>
             </h2>
           </div>
 
@@ -170,19 +208,9 @@ export default function Team() {
                   </span>
                 </div>
                 <h3 className="text-lg font-semibold mb-1">{advisor.name}</h3>
-                <p className="text-aura-orchid text-sm mb-3">{advisor.role}</p>
-                {advisor.bio && <p className="text-white/60 text-sm mb-4">{advisor.bio}</p>}
-                <a
-                  href={advisor.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-white/40 hover:text-aura-azure transition-colors"
-                  aria-label={`${advisor.name} LinkedIn`}
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
+                <p className="text-aura-orchid text-sm mb-1">{advisor.role}</p>
+                {advisor.affiliation && <p className="text-white/40 text-xs mb-3">{advisor.affiliation}</p>}
+                {advisor.bio && <p className="text-white/60 text-sm">{advisor.bio}</p>}
               </div>
             ))}
           </div>
@@ -208,18 +236,7 @@ export default function Team() {
                 </div>
                 <h3 className="text-lg font-semibold mb-1">{fellow.name}</h3>
                 <p className="text-aura-azure text-sm mb-3">{fellow.role}</p>
-                {fellow.bio && <p className="text-white/60 text-sm mb-4">{fellow.bio}</p>}
-                <a
-                  href={fellow.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-white/40 hover:text-aura-azure transition-colors"
-                  aria-label={`${fellow.name} LinkedIn`}
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
+                {fellow.bio && <p className="text-white/60 text-sm">{fellow.bio}</p>}
               </div>
             ))}
           </div>
@@ -231,7 +248,7 @@ export default function Team() {
         <div className="container-custom mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="gradient-text">Values</span>
+              <span className="gradient-text">Our Values</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               The principles that guide how we work and the impact we strive to create.
@@ -240,8 +257,8 @@ export default function Team() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="card group">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-aura-orchid/20 to-aura-blush/20 flex items-center justify-center text-aura-orchid mb-4 group-hover:scale-110 transition-transform">
+              <div key={index} className="card group text-center">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-aura-orchid/20 to-aura-blush/20 flex items-center justify-center text-aura-orchid mb-4 group-hover:scale-110 transition-transform mx-auto">
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{value.title}</h3>

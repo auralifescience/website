@@ -1,5 +1,12 @@
 import Link from 'next/link'
 
+const applications = [
+  { name: 'Enzymes', description: 'Industrial and specialty enzymes at scale' },
+  { name: 'Food Proteins', description: 'Sustainable alternative proteins' },
+  { name: 'Therapeutics', description: 'Biopharmaceutical production' },
+  { name: 'Biomaterials', description: 'Next-gen sustainable materials' },
+]
+
 const advantages = [
   {
     title: 'Photosynthetic Production',
@@ -39,37 +46,7 @@ const advantages = [
   },
 ]
 
-const processSteps = [
-  {
-    number: '01',
-    title: 'Strain Engineering',
-    description: 'We engineer our cyanobacteria strains with optimized gene expression systems, enhanced secretion pathways, and improved photosynthetic efficiency.',
-  },
-  {
-    number: '02',
-    title: 'Cultivation',
-    description: 'Cells are grown in our proprietary photobioreactors that maximize light exposure and CO2 uptake while maintaining optimal growth conditions.',
-  },
-  {
-    number: '03',
-    title: 'Expression',
-    description: 'Using light-controlled promoters and optimized expression systems, our cells produce target proteins at unprecedented yields.',
-  },
-  {
-    number: '04',
-    title: 'Purification',
-    description: 'Engineered secretion systems simplify downstream processing. Standard chromatography methods deliver pharmaceutical-grade purity.',
-  },
-]
 
-const comparison = [
-  { feature: 'Carbon Feedstock', aura: 'CO2 (free)', ecoli: 'Glucose ($$$)' },
-  { feature: 'Energy Source', aura: 'Sunlight', ecoli: 'Electricity' },
-  { feature: 'Carbon Footprint', aura: 'Negative', ecoli: 'Positive' },
-  { feature: 'Production Cost', aura: 'Competitive', ecoli: 'Baseline' },
-  { feature: 'Scale-up Risk', aura: 'Low', ecoli: 'Medium' },
-  { feature: 'Protein Yields', aura: '30-50x improved', ecoli: 'Standard' },
-]
 
 export default function Technology() {
   return (
@@ -80,15 +57,15 @@ export default function Technology() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-aura-azure/10 border border-aura-azure/20 text-aura-azure text-sm mb-8">
               <span className="w-2 h-2 rounded-full bg-aura-azure mr-2" />
-              Platform Technology
+              Photosynthetic Biomanufacturing
             </div>
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-              Engineering <span className="gradient-text">Photosynthesis</span> for Protein Production
+              Carbon-Negative Biomanufacturing that <span className="gradient-text">Drives Down Costs</span>
             </h1>
             <p className="text-lg md:text-xl text-white/70 max-w-2xl">
-              Our cyanobacteria biomanufacturing platform combines billions of years
-              of evolutionary optimization with cutting-edge synthetic biology to
-              achieve unprecedented protein yields.
+              We use photosynthetic microbes to convert light and CO2 into high-value
+              enzymes. Through patented genetic modifications, we enable radically lower
+              production costs compared to conventional precision fermentation.
             </p>
           </div>
         </div>
@@ -115,39 +92,39 @@ export default function Technology() {
               <p className="text-white/70">
                 Our proprietary strains have been engineered to redirect their
                 photosynthetic power toward producing high-value recombinant
-                proteins at industrial scale.
+                proteins at scale.
               </p>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-aura-dark-green to-aura-dark border border-white/10 p-8">
+              <div className="rounded-3xl bg-gradient-to-br from-aura-dark-green to-aura-dark border border-white/10 p-6">
                 {/* Absorption spectrum visualization */}
-                <svg viewBox="0 0 300 300" className="w-full h-full">
+                <svg viewBox="0 0 300 280" className="w-full h-auto">
                   <defs>
-                    <linearGradient id="spectrumGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <linearGradient id="spectrumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#8ef9d5" />
-                      <stop offset="25%" stopColor="#5fc2f0" />
-                      <stop offset="50%" stopColor="#d4fdee" />
-                      <stop offset="75%" stopColor="#e2addb" />
+                      <stop offset="40%" stopColor="#5fc2f0" />
+                      <stop offset="70%" stopColor="#e2addb" />
                       <stop offset="100%" stopColor="#f5c7be" />
                     </linearGradient>
                   </defs>
-                  {/* Stylized absorption spectrum */}
+                  {/* Axes */}
+                  <line x1="45" y1="220" x2="275" y2="220" stroke="white" strokeWidth="1" opacity="0.3" />
+                  <line x1="45" y1="20" x2="45" y2="220" stroke="white" strokeWidth="1" opacity="0.3" />
+                  {/* Absorption curve — peaks well within bounds */}
                   <path
-                    d="M30 250 Q60 180, 90 200 Q120 220, 150 100 Q180 50, 210 150 Q240 200, 270 180"
+                    d="M45 210 Q65 190 85 195 Q105 200 125 160 Q145 120 165 130 Q185 85 205 95 Q225 140 245 195 Q260 210 275 205"
                     fill="none"
                     stroke="url(#spectrumGradient)"
                     strokeWidth="3"
-                    className="opacity-80"
+                    strokeLinecap="round"
+                    opacity="0.9"
                   />
                   {/* Peak markers */}
-                  <circle cx="150" cy="100" r="6" fill="#8ef9d5" className="animate-pulse" />
-                  <circle cx="210" cy="150" r="5" fill="#e2addb" className="animate-pulse" />
-                  {/* Axis */}
-                  <line x1="30" y1="260" x2="270" y2="260" stroke="white" strokeWidth="1" opacity="0.3" />
-                  <line x1="30" y1="50" x2="30" y2="260" stroke="white" strokeWidth="1" opacity="0.3" />
-                  {/* Labels */}
-                  <text x="150" y="285" textAnchor="middle" fill="white" opacity="0.5" fontSize="12">Wavelength (nm)</text>
-                  <text x="15" y="155" textAnchor="middle" fill="white" opacity="0.5" fontSize="12" transform="rotate(-90 15 155)">Absorption</text>
+                  <circle cx="165" cy="130" r="5" fill="#8ef9d5" className="animate-pulse" />
+                  <circle cx="205" cy="95" r="5" fill="#e2addb" className="animate-pulse" />
+                  {/* Axis labels */}
+                  <text x="160" y="245" textAnchor="middle" fill="white" opacity="0.5" fontSize="11">Wavelength (nm)</text>
+                  <text x="14" y="120" textAnchor="middle" fill="white" opacity="0.5" fontSize="11" transform="rotate(-90 14 120)">Absorption</text>
                 </svg>
                 <p className="text-center text-sm text-white/40 mt-4">
                   Cyanobacteria absorption spectrum visualization
@@ -173,8 +150,8 @@ export default function Technology() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {advantages.map((advantage, index) => (
-              <div key={index} className="card group">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-aura-mint/20 to-aura-azure/20 flex items-center justify-center text-aura-mint mb-4 group-hover:scale-110 transition-transform">
+              <div key={index} className="card group text-center">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-aura-mint/20 to-aura-azure/20 flex items-center justify-center text-aura-mint mb-4 group-hover:scale-110 transition-transform mx-auto">
                   {advantage.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{advantage.title}</h3>
@@ -185,71 +162,37 @@ export default function Technology() {
         </div>
       </section>
 
-      {/* Process */}
+
+
+      {/* Applications Section */}
       <section className="section-padding">
         <div className="container-custom mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Our <span className="gradient-text">Process</span>
-            </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
-              From strain engineering to final product, every step is optimized
-              for efficiency, sustainability, and quality.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processSteps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="card h-full">
-                  <div className="text-5xl font-bold gradient-text opacity-50 mb-4">
-                    {step.number}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Endless <span className="gradient-text">Applications</span>
+              </h2>
+              <p className="text-white/60 mb-8">
+                Our platform technology enables production of diverse protein products
+                across multiple industries, all with the same carbon-negative benefits.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {applications.map((app, index) => (
+                  <div key={index} className="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <h4 className="font-semibold text-aura-mint mb-1">{app.name}</h4>
+                    <p className="text-sm text-white/60">{app.description}</p>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                  <p className="text-sm text-white/60">{step.description}</p>
-                </div>
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-aura-mint/50 to-transparent" />
-                )}
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison */}
-      <section className="section-padding">
-        <div className="container-custom mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              Aura vs. <span className="gradient-text">Traditional</span> Fermentation
-            </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
-              See how our cyanobacteria platform compares to conventional E. coli
-              fermentation systems.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="overflow-hidden rounded-2xl border border-white/10">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-white/5">
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-white/80">Feature</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-aura-mint">Aura Platform</th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-white/50">E. coli</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((row, index) => (
-                    <tr key={index} className="border-t border-white/5">
-                      <td className="px-6 py-4 text-sm text-white/70">{row.feature}</td>
-                      <td className="px-6 py-4 text-center text-sm text-aura-mint font-medium">{row.aura}</td>
-                      <td className="px-6 py-4 text-center text-sm text-white/50">{row.ecoli}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-3xl border border-white/10 overflow-hidden">
+                <img
+                  src="/Prochlorococcus_marinus.jpg"
+                  alt="Prochlorococcus marinus"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
