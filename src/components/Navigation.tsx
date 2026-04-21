@@ -99,7 +99,7 @@ export default function Navigation() {
             isMobileMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'
           }`}
         >
-          <div className="flex flex-col space-y-1 pt-4">
+          <div className="flex flex-col space-y-1 pt-4 bg-aura-dark/95 backdrop-blur-md rounded-2xl mx-2 px-2 pb-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
