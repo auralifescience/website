@@ -3,8 +3,14 @@ const milestones = [
     year: '2026',
     items: [
       {
+        title: 'Aura Advances to Semifinals at Rice Business Plan Competition',
+        description: 'Aura advances as one of 15 teams globally to the semifinals at the Rice Business Plan Competition.',
+        tags: ['Competition'],
+        image: '/RBPC.jpg',
+      },
+      {
         title: 'Aura Selected for Rice Business Plan Competition',
-        description: 'Aura is selected to compete in the Rice Business Plan Competition, one of the world\'s largest and richest graduate student startup competitions.',
+        description: 'Aura was selected from over 550 applications globally to compete in the Rice Business Plan Competition, one of the world\'s largest and richest graduate student startup competitions.',
         tags: ['Competition'],
         link: 'https://rbpc.rice.edu/2026/2026-startups',
       },
@@ -148,6 +154,11 @@ export default function News() {
                             : 'md:ml-auto md:pl-8'
                         }`}>
                           <div className="card">
+                            {'image' in item && item.image && (
+                              <div className="mb-4 -mx-6 -mt-6 rounded-t-2xl overflow-hidden">
+                                <img src={item.image} alt={item.title} className="w-full object-contain" />
+                              </div>
+                            )}
                             <div className="flex flex-wrap gap-2 mb-3">
                               {item.tags.map((tag) => (
                                 <span

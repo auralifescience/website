@@ -1,24 +1,32 @@
+'use client'
+
 import Link from 'next/link'
+import { useState } from 'react'
 
 const leadership = [
   {
     name: 'Emilio Balderas',
-    role: 'CEO & Co-Founder',
-    bio: 'Emilio leads Aura\'s vision and strategy, driving the company\'s mission to make biomanufacturing carbon-negative. He brings entrepreneurial and operational expertise to building Aura\'s platform from the ground up.',
+    role: 'Founder & CEO',
+    bio: 'A Chicago Booth MBA with Fortune 500 consulting and deep-tech venture experience, Emilio brings the commercial and operational expertise to scale promising science into market-ready businesses.',
+    fullBio: `Chicago Booth MBA with consulting and venture capital experience. As former Director at Mercury, Emilio led teams delivering 500+ projects for Fortune 500 clients including Walmart, Southern Company, and Veolia. He has also led three deep tech investments on behalf of VCs including Angeles Ventures and the Polsky Center. Emilio knows what makes a startup fundable. This, combined with his experience helping global companies open factories, navigate regulatory landscapes, develop market entry and competitive strategy, and survive business crises – uniquely qualifies him to commercialize promising research, bringing them from lab to pilot, and beyond. Through his time at Aura, Emilio has already successfully garnered interest from two global enzyme manufacturers for JDAs, which are currently in technical discussions – a promising signal as he spearheads our market entry strategy and sales.
+
+More personally, Emilio's journey from experiencing homelessness as a child to leading a deep-tech startup demonstrates the grit and resilience essential for hard-tech entrepreneurship. His mission to make necessities affordable is deeply personal – he understands what it means when essential products are priced out of reach. His ability to translate complex science into compelling business value has already secured acceptance into elite accelerators: LabStart ($100K SAFE investment as one of six companies selected from global applicant pool), Alchemist Chicago (inaugural cohort, <5% acceptance rate), mHUB mPOWER, SpaceEdge, New Venture Challenge and LongJump's The Raise program.`,
     image: null,
     linkedin: 'https://www.linkedin.com/in/emiliobalderas/',
   },
   {
     name: 'Jacob Bhoi',
-    role: 'CSO & Co-Founder',
-    bio: 'Jacob leads Aura\'s scientific direction, pioneering the use of cyanobacteria as a next-generation biomanufacturing chassis. His research focuses on engineering photosynthetic organisms for high-yield protein and compound production.',
+    role: 'Founder & CSO',
+    bio: 'A Northwestern-trained neuroscientist with nearly a decade of circadian biology, Jake leads Aura\'s technology development with rare scientific depth and commercial acumen.',
+    fullBio: `PhD Candidate (defending in August 2026) in Neuroscience at Northwestern University with nearly a decade of circadian biology research experience. Jake is an expert in Aura's core technology, circadian engineering. Jake has secured $350K+ in competitive research grants (NIH F31, NSF GRFP Honorable Mention) and is a current finalist for Argonne National Lab's Chain Reaction Innovations program, demonstrating ability to communicate complex science and secure non-dilutive funding. Previously he led development for O4U Life Sciences, establishing partnerships with AbbVie, Abbott, Merck, Genentech, and 3M – providing critical experience navigating pharma/biotech partnership structures. His rare combination of deep scientific expertise and commercial awareness makes him ideally suited to drive our technology development while understanding market requirements.`,
     image: null,
     linkedin: 'https://www.linkedin.com/in/jacob-bhoi/',
   },
   {
     name: 'AH Hassaballah',
     role: 'COO',
-    bio: '',
+    bio: 'A Chicago Booth MBA with cross-functional experience spanning biotech R&D, clinical operations, and regulatory compliance, A.H. provides the operational foundation for Aura\'s scale-up from laboratory to pilot.',
+    fullBio: `Chicago Booth MBA with deep expertise bridging biotechnology R&D, regulatory compliance, and biotech operational scale-up. As Scientist at Derm Biont and Concerto Bio, A.H. led clinical trial data management and expanded biobanks 10-fold while advising on strategic laboratory scaling decisions. His EPA experience provides critical insights into navigating complex regulatory environments essential for biomanufacturing commercialization. His cross-functional background managing laboratory operations addresses immediate needs as Aura transitions from proof-of-concept to pilot scale, while his track record in pitch competitions demonstrates the communication skills essential for fundraising.`,
     image: null,
     linkedin: 'https://www.linkedin.com/in/ahhassaballah/',
   },
@@ -131,6 +139,8 @@ const values = [
 ]
 
 export default function Team() {
+  const [selectedMember, setSelectedMember] = useState<typeof leadership[0] | null>(null)
+
   return (
     <>
       {/* Hero Section */}
@@ -164,7 +174,11 @@ export default function Team() {
 
           <div className="flex flex-wrap justify-center gap-6">
             {leadership.map((member, index) => (
-              <div key={index} className="card text-center group w-64">
+              <div
+                key={index}
+                className="card text-center group w-64 cursor-pointer hover:border-aura-mint/30 transition-colors"
+                onClick={() => setSelectedMember(member)}
+              >
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-aura-mint/20 to-aura-orchid/20 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform">
                   <span className="text-3xl font-bold gradient-text">
                     {member.name.split(' ').map((n: string) => n[0]).join('')}
@@ -173,17 +187,7 @@ export default function Team() {
                 <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
                 <p className="text-aura-mint text-sm mb-3">{member.role}</p>
                 <p className="text-white/60 text-sm mb-4">{member.bio}</p>
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-white/40 hover:text-aura-azure transition-colors"
-                  aria-label={`${member.name} LinkedIn`}
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </a>
+                <span className="text-xs text-white/30 group-hover:text-aura-mint/60 transition-colors">Click to read more</span>
               </div>
             ))}
           </div>
@@ -298,6 +302,51 @@ export default function Team() {
           </div>
         </div>
       </section>
+
+      {/* Bio Modal */}
+      {selectedMember && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={() => setSelectedMember(null)}
+        >
+          <div
+            className="relative bg-aura-dark border border-white/10 rounded-3xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedMember(null)}
+              className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-br from-aura-mint/20 to-aura-orchid/20 border border-white/10 flex items-center justify-center">
+              <span className="text-xl font-bold gradient-text">
+                {selectedMember.name.split(' ').map((n: string) => n[0]).join('')}
+              </span>
+            </div>
+            <h3 className="text-2xl font-bold mb-1">{selectedMember.name}</h3>
+            <p className="text-aura-mint text-sm mb-6">{selectedMember.role}</p>
+            <div className="text-white/70 text-sm leading-relaxed space-y-4">
+              {selectedMember.fullBio.split('\n\n').map((para: string, i: number) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+            <a
+              href={selectedMember.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-6 text-white/40 hover:text-aura-azure transition-colors text-sm"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      )}
     </>
   )
 }
