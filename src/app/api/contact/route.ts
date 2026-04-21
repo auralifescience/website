@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   try {
     // Send notification to Aura
     await resend.emails.send({
-      from: 'Aura Website <onboarding@resend.dev>',
+      from: 'Aura Website <hello@auralifescience.com>',
       to: 'hello@auralifescience.com',
       replyTo: email,
       subject: `New ${type || 'Contact'} message from ${name}`,
@@ -26,7 +26,7 @@ ${message}
 
     // Send confirmation copy to submitter
     await resend.emails.send({
-      from: 'Aura Life Science <onboarding@resend.dev>',
+      from: 'Aura Life Science <hello@auralifescience.com>',
       to: email,
       subject: `We received your message, ${name}`,
       text: `

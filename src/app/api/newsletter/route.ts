@@ -8,7 +8,7 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      from: 'Aura Website <onboarding@resend.dev>',
+      from: 'Aura Website <hello@auralifescience.com>',
       to: 'hello@auralifescience.com',
       subject: 'New Newsletter Subscriber',
       text: `You have a new subscriber: ${email}`,
