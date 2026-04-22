@@ -96,39 +96,12 @@ export default function Technology() {
               </p>
             </div>
             <div className="relative">
-              <div className="rounded-3xl bg-gradient-to-br from-aura-dark-green to-aura-dark border border-white/10 p-6">
-                {/* Absorption spectrum visualization */}
-                <svg viewBox="0 0 300 280" className="w-full h-auto">
-                  <defs>
-                    <linearGradient id="spectrumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#8ef9d5" />
-                      <stop offset="40%" stopColor="#5fc2f0" />
-                      <stop offset="70%" stopColor="#e2addb" />
-                      <stop offset="100%" stopColor="#f5c7be" />
-                    </linearGradient>
-                  </defs>
-                  {/* Axes */}
-                  <line x1="45" y1="220" x2="275" y2="220" stroke="white" strokeWidth="1" opacity="0.3" />
-                  <line x1="45" y1="20" x2="45" y2="220" stroke="white" strokeWidth="1" opacity="0.3" />
-                  {/* Absorption curve — peaks well within bounds */}
-                  <path
-                    d="M45 210 Q65 190 85 195 Q105 200 125 160 Q145 120 165 130 Q185 85 205 95 Q225 140 245 195 Q260 210 275 205"
-                    fill="none"
-                    stroke="url(#spectrumGradient)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    opacity="0.9"
-                  />
-                  {/* Peak markers */}
-                  <circle cx="165" cy="130" r="5" fill="#8ef9d5" className="animate-pulse" />
-                  <circle cx="205" cy="95" r="5" fill="#e2addb" className="animate-pulse" />
-                  {/* Axis labels */}
-                  <text x="160" y="245" textAnchor="middle" fill="white" opacity="0.5" fontSize="11">Wavelength (nm)</text>
-                  <text x="14" y="120" textAnchor="middle" fill="white" opacity="0.5" fontSize="11" transform="rotate(-90 14 120)">Absorption</text>
-                </svg>
-                <p className="text-center text-sm text-white/40 mt-4">
-                  Cyanobacteria absorption spectrum visualization
-                </p>
+              <div className="aspect-square rounded-3xl border border-white/10 overflow-hidden">
+                <img
+                  src="/Prochlorococcus_marinus.jpg"
+                  alt="Prochlorococcus marinus"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -186,12 +159,34 @@ export default function Technology() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-3xl border border-white/10 overflow-hidden">
-                <img
-                  src="/Prochlorococcus_marinus.jpg"
-                  alt="Prochlorococcus marinus"
-                  className="w-full h-full object-cover"
-                />
+              <div className="rounded-3xl bg-gradient-to-br from-aura-dark-green to-aura-dark border border-white/10 p-6">
+                <svg viewBox="0 0 300 280" className="w-full h-auto">
+                  <defs>
+                    <linearGradient id="spectrumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#8ef9d5" />
+                      <stop offset="40%" stopColor="#5fc2f0" />
+                      <stop offset="70%" stopColor="#e2addb" />
+                      <stop offset="100%" stopColor="#f5c7be" />
+                    </linearGradient>
+                  </defs>
+                  <line x1="45" y1="220" x2="275" y2="220" stroke="white" strokeWidth="1" opacity="0.3" />
+                  <line x1="45" y1="20" x2="45" y2="220" stroke="white" strokeWidth="1" opacity="0.3" />
+                  <path
+                    d="M45 210 Q65 190 85 195 Q105 200 125 160 Q145 120 165 130 Q185 85 205 95 Q225 140 245 195 Q260 210 275 205"
+                    fill="none"
+                    stroke="url(#spectrumGradient)"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    opacity="0.9"
+                  />
+                  <circle cx="165" cy="130" r="5" fill="#8ef9d5" className="animate-pulse" />
+                  <circle cx="205" cy="95" r="5" fill="#e2addb" className="animate-pulse" />
+                  <text x="160" y="245" textAnchor="middle" fill="white" opacity="0.5" fontSize="11">Wavelength (nm)</text>
+                  <text x="14" y="120" textAnchor="middle" fill="white" opacity="0.5" fontSize="11" transform="rotate(-90 14 120)">Absorption</text>
+                </svg>
+                <p className="text-center text-sm text-white/40 mt-4">
+                  Cyanobacteria absorption spectrum visualization
+                </p>
               </div>
             </div>
           </div>
