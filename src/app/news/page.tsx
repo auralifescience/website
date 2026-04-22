@@ -47,6 +47,12 @@ const milestones = [
     year: '2025',
     items: [
       {
+        title: 'Aura Places Tile on the Member Wall at mHUB',
+        description: 'Aura celebrated completing the 6-month mPower Energy and Sustainability program at mHub with Co-Founders, Emilio and Jake, placing the Aura Life Science tile on the mHub member wall and pitching to the mHub community!',
+        tags: ['Milestone'],
+        image: '/mpower.png',
+      },
+      {
         title: '2025 Alchemist Chicago',
         description: 'Aura is accepted into the Alchemist Accelerator Chicago cohort, supported by the Polsky Center for Entrepreneurship and Innovation at the University of Chicago.',
         tags: ['Accelerator'],
@@ -73,12 +79,6 @@ const milestones = [
         title: 'Aura Life Science Founded',
         description: 'Emilio Balderas and Jacob Bhoi co-found Aura Life Science to commercialize breakthrough cyanobacteria biomanufacturing technology.',
         tags: ['Milestone'],
-      },
-      {
-        title: 'Aura Places Tile on the Member Wall at mHUB',
-        description: 'Aura celebrated completing the 6-month mPower Energy and Sustainability program at mHub with Co-Founders, Emilio and Jake, placing the Aura Life Science tile on the mHub member wall and pitching to the mHub community!',
-        tags: ['Milestone'],
-        image: '/mpower.png',
       },
     ],
   },
