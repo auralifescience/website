@@ -4,7 +4,13 @@ import { NextResponse } from 'next/server'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
-  const { name, email, company, message, type } = await request.json()
+  const { name, email, company, message, type, website } = await request.json()
+
+  // Honeypot check — bots fill hidden fields, real users don't
+  if (website) {
+    console.log('Honeypot triggered — bot submission blocked:', { name, email, company })
+    return NextResponse.json({ success: true })
+  }
 
   // Send notification to Aura
   const { error: error1 } = await resend.emails.send({

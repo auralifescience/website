@@ -42,6 +42,7 @@ export default function Contact() {
     email: '',
     company: '',
     message: '',
+    website: '', // honeypot — should always be empty for real users
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -257,6 +258,17 @@ export default function Contact() {
                               ? 'Tell us about your investment focus and interest in Aura Life Science...'
                               : 'How can we help you?'
                           }
+                        />
+                      </div>
+                      {/* Honeypot field — hidden from real users, bots will fill it */}
+                      <div style={{ position: 'absolute', left: '-9999px', top: '-9999px' }} aria-hidden="true">
+                        <input
+                          type="text"
+                          name="website"
+                          value={formState.website}
+                          onChange={(e) => setFormState({ ...formState, website: e.target.value })}
+                          tabIndex={-1}
+                          autoComplete="off"
                         />
                       </div>
                       <button
