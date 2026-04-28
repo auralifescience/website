@@ -5,6 +5,17 @@ const milestones = [
     year: '2026',
     items: [
       {
+        title: 'Aura Selected for Rhodium Scientific Prize for Advancing Space Biotechnology',
+        description: 'Aura was selected for the Rhodium Scientific Prize for Advancing Space Biotechnology and will be collaborating with Rhodium Scientific to rigorously evaluate our technology for space applications.',
+        tags: ['Recognition'],
+      },
+      {
+        title: 'Aura Selected as VentureCat Semifinalist',
+        description: 'Aura was selected as a semifinalist for VentureCat, Northwestern University\'s student startup competition.',
+        tags: ['Competition'],
+        link: 'https://www.venturecat.northwestern.edu/about/2026-semifinalists.html',
+      },
+      {
         title: 'Aura Advances to Semifinals at Rice Business Plan Competition',
         description: 'Aura advances as one of 15 teams globally to the semifinals at the Rice Business Plan Competition.',
         tags: ['Competition'],
