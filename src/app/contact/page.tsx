@@ -60,7 +60,7 @@ export default function Contact() {
       })
       if (!res.ok) throw new Error('Failed')
       setIsSubmitted(true)
-      setFormState({ name: '', email: '', company: '', message: '' })
+      setFormState({ name: '', email: '', company: '', message: '', website: '' })
     } catch {
       alert('Something went wrong. Please try again or email us directly at hello@auralifescience.com.')
     } finally {
