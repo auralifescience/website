@@ -48,6 +48,7 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [newsletterEmail, setNewsletterEmail] = useState('')
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false)
+  const [newsletterHoneypot, setNewsletterHoneypot] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -74,7 +75,7 @@ export default function Contact() {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: newsletterEmail }),
+        body: JSON.stringify({ email: newsletterEmail, website: newsletterHoneypot }),
       })
       if (!res.ok) throw new Error('Failed')
       setNewsletterSubmitted(true)
@@ -319,6 +320,17 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                  {/* Honeypot field — hidden from real users, bots will fill it */}
+                  <div style={{ position: 'absolute', left: '-9999px', top: '-9999px' }} aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website"
+                      value={newsletterHoneypot}
+                      onChange={(e) => setNewsletterHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   <input
                     type="email"
                     required

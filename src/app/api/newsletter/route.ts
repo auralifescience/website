@@ -4,7 +4,13 @@ import { NextResponse } from 'next/server'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
-  const { email } = await request.json()
+  const { email, website } = await request.json()
+
+  // Honeypot check — bots fill hidden fields, real users don't
+  if (website) {
+    console.log('Honeypot triggered — bot newsletter submission blocked:', { email })
+    return NextResponse.json({ success: true })
+  }
 
   try {
     await resend.emails.send({
