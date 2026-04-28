@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const applications = [
   { name: 'Enzymes', description: 'Industrial and specialty enzymes at scale' },
@@ -97,9 +98,11 @@ export default function Technology() {
             </div>
             <div className="relative">
               <div className="aspect-square rounded-3xl border border-white/10 overflow-hidden">
-                <img
+                <Image
                   src="/Prochlorococcus_marinus.jpg"
                   alt="Prochlorococcus marinus"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover"
                 />
               </div>

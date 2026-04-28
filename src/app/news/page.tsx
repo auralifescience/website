@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const milestones = [
   {
     year: '2026',
@@ -162,7 +164,7 @@ export default function News() {
                           <div className="card">
                             {'image' in item && item.image && (
                               <div className="mb-4 -mx-6 -mt-6 rounded-t-2xl overflow-hidden">
-                                <img src={item.image} alt={item.title} className="w-full object-contain" />
+                                <Image src={item.image} alt={item.title} width={800} height={500} className="w-full object-contain" />
                               </div>
                             )}
                             <div className="flex flex-wrap gap-2 mb-3">
